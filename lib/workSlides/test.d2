@@ -1,0 +1,20 @@
+be: Backend
+fe: Frontend
+
+# This would create new shapes
+Stage One -> Stage Two.Base -> Stage Three -> Stage Four : Sequence
+Stage Four -> Stage One: repeat
+
+# This would define a connection over existing labels
+be -> fe -> Stage Two  : end {
+    source-arrowhead.label: 1
+    target-arrowhead: 2 {
+      shape: diamond
+      style.filled: true
+    }
+  }
+
+  hex: {shape: hexagon}
+  que: {shape: queue}
+  package: {shape:package}
+  
