@@ -13,7 +13,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int totalSec = 1500; // 25mins x 60
   late Timer timer;
   bool isRunning = false;
-
+// CODE: timer module
   void onTick(Timer timer) {
     setState(() {
       totalSec = totalSec - 1;
