@@ -18,7 +18,7 @@ marp: false
     - open user settings (settings.json)
 ```
     "editor.codeActionsOnSave" : {
-        "source.fixAll" : true
+        "source.fixAll" : truepush -
     },
     "dart.previewFlutterUiGuides": true,
 ```
