@@ -1,0 +1,22 @@
+goal: Complex Building {shape: cloud}
+need: 1 billion 
+need <- Apps <- Flutter: Sequence
+Apps -> Salon : Sequence
+need <- Salon : Sequence
+Skill -- English
+Skill -- Flutter
+
+
+# This would define a connection over existing labels
+goal <- need  : end {
+    source-arrowhead.label: 1
+    target-arrowhead: 2 {
+      shape: diamond
+      style.filled: true
+    }
+  }
+
+goal.Shop
+goal.Gym <- Jumping
+goal.Clinics
+goal.Accomodation <- Airbnb
