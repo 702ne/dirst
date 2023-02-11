@@ -37,7 +37,7 @@ class HomeScreen extends StatelessWidget {
               ],
             ); 
             */
-            /*
+            /* 2. load data when it need
            return ListView.builder(
                 // scrollDirection: Axis.horizontal,
                 itemCount: futureReturn.data!.length,
@@ -47,6 +47,7 @@ class HomeScreen extends StatelessWidget {
                   return Text(webtoon.title);
                 }));
                 */
+            // 3. list with separator
             return ListView.separated(
               // scrollDirection: Axis.horizontal,
               itemCount: futureReturn.data!.length,
