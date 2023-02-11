@@ -22,7 +22,7 @@ class ApiService {
         //print(jsonData.title);
         webtoonInstances.add(jsonData);
       }
-      print(webtoonInstances[1].title);
+      //print(webtoonInstances[1].title);
       return webtoonInstances;
     }
     throw Error();
@@ -30,6 +30,5 @@ class ApiService {
 }
 
 // void main(List<String> args) {
-//   ApiService app = ApiService();
-//   app.getTodaysToons();
+//   ApiService().getTodaysToons();
 // }
