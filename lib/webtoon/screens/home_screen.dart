@@ -30,41 +30,39 @@ class HomeScreen extends StatelessWidget {
         future: toons,
         builder: (context, futureReturn) {
           if (futureReturn.hasData) {
-            /* 1. Simple list
-            return ListView(
+            return Column(
               children: [
-                for (var webtoon in futureReturn.data!) Text(webtoon.title),
+                const SizedBox(
+                  height: 50,
+                ),
+                Expanded(child: makeList(futureReturn)),
               ],
-            ); 
-            */
-            /* 2. load data when it need
-           return ListView.builder(
-                // scrollDirection: Axis.horizontal,
-                itemCount: futureReturn.data!.length,
-                itemBuilder: ((context, index) {
-                  var webtoon = futureReturn.data![index];
-                  print(index);
-                  return Text(webtoon.title);
-                }));
-                */
-            // 3. list with separator
-            return ListView.separated(
-              // scrollDirection: Axis.horizontal,
-              itemCount: futureReturn.data!.length,
-              itemBuilder: ((context, index) {
-                var webtoon = futureReturn.data![index];
-                print(index);
-                return Text(webtoon.title);
-              }),
-              separatorBuilder: (context, index) => const SizedBox(
-                height: 20,
-              ),
             );
           }
           return const Center(
             child: CircularProgressIndicator(),
           );
         },
+      ),
+    );
+  }
+
+  ListView makeList(AsyncSnapshot<List<WebtoonModel>> futureReturn) {
+    return ListView.separated(
+      scrollDirection: Axis.horizontal,
+      itemCount: futureReturn.data!.length,
+      itemBuilder: ((context, index) {
+        var webtoon = futureReturn.data![index];
+        print(index);
+        return Column(
+          children: [
+            SizedBox(width: 250, child: Image.network(webtoon.thumb)),
+            Text(webtoon.title),
+          ],
+        );
+      }),
+      separatorBuilder: (context, index) => const SizedBox(
+        width: 20,
       ),
     );
   }
