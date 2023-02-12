@@ -1,5 +1,6 @@
 import 'package:dirst/webtoon/models/webtoon_model.dart';
 import 'package:dirst/webtoon/services/api_service.dart';
+import 'package:dirst/webtoon/widgets/webtoon_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -50,19 +51,19 @@ class HomeScreen extends StatelessWidget {
   ListView makeList(AsyncSnapshot<List<WebtoonModel>> futureReturn) {
     return ListView.separated(
       scrollDirection: Axis.horizontal,
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
       itemCount: futureReturn.data!.length,
       itemBuilder: ((context, index) {
         var webtoon = futureReturn.data![index];
-        print(index);
-        return Column(
-          children: [
-            SizedBox(width: 250, child: Image.network(webtoon.thumb)),
-            Text(webtoon.title),
-          ],
+        //print(index);
+        return Webtoon(
+          title: webtoon.title,
+          thumb: webtoon.thumb,
+          id: webtoon.id,
         );
       }),
       separatorBuilder: (context, index) => const SizedBox(
-        width: 20,
+        width: 40,
       ),
     );
   }
