@@ -31,6 +31,7 @@ class _DetailScreenState extends State<DetailScreen> {
 
   @override
   Widget build(BuildContext context) {
+    late WebtoonDetailModel dt;
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -72,6 +73,49 @@ class _DetailScreenState extends State<DetailScreen> {
               //Text(detail.title),
             ],
           ),
+          const SizedBox(
+            height: 20,
+          ),
+          FutureBuilder(
+              future: detail,
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  dt = snapshot.data!;
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 50),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          dt.about,
+                          style: const TextStyle(fontSize: 16),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "${dt.genre} / ${dt.age}",
+                          style: const TextStyle(fontSize: 16),
+                        ),
+                      ],
+                    ),
+                  );
+                }
+                return const Text("...");
+              }),
+          const SizedBox(
+            height: 10,
+          ),
+          FutureBuilder(
+              future: episodes,
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return Column(
+                    children: [for (var ep in snapshot.data!) Text(ep.title)],
+                  );
+                }
+                return const Text("...");
+              }),
         ],
       ),
     );
