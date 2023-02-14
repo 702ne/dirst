@@ -1,5 +1,8 @@
 import "package:flutter/material.dart";
 
+import "../models/webtoon_detail_model.dart";
+import "../services/api_service.dart";
+
 class DetailScreen extends StatelessWidget {
   final String id, title, thumb;
 
@@ -12,6 +15,8 @@ class DetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Future<WebtoonDetailModel> toon = ApiService().getToonById(id);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -50,6 +55,7 @@ class DetailScreen extends StatelessWidget {
                   child: Image.network(thumb),
                 ),
               ),
+              //Text(toon.title),
             ],
           ),
         ],
