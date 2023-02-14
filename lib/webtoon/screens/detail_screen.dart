@@ -1,9 +1,10 @@
+import "package:dirst/webtoon/models/webtoon_episode_model.dart";
 import "package:flutter/material.dart";
 
 import "../models/webtoon_detail_model.dart";
 import "../services/api_service.dart";
 
-class DetailScreen extends StatelessWidget {
+class DetailScreen extends StatefulWidget {
   final String id, title, thumb;
 
   const DetailScreen({
@@ -14,13 +15,26 @@ class DetailScreen extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
-    Future<WebtoonDetailModel> toon = ApiService().getToonById(id);
+  State<DetailScreen> createState() => _DetailScreenState();
+}
 
+class _DetailScreenState extends State<DetailScreen> {
+  late Future<WebtoonDetailModel> detail;
+  late Future<List<WebtoonEpisodeModel>> episodes;
+
+  @override
+  void initState() {
+    super.initState();
+    detail = ApiService().getToonById(widget.id);
+    episodes = ApiService().getLatestEpisodesbyId(widget.id);
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          title,
+          widget.title,
           style: const TextStyle(
             fontSize: 24,
           ),
@@ -39,7 +53,7 @@ class DetailScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Hero(
-                tag: id,
+                tag: widget.id,
                 child: Container(
                   width: 250,
                   clipBehavior: Clip.hardEdge,
@@ -52,10 +66,10 @@ class DetailScreen extends StatelessWidget {
                           offset: const Offset(10, 10),
                         )
                       ]),
-                  child: Image.network(thumb),
+                  child: Image.network(widget.thumb),
                 ),
               ),
-              //Text(toon.title),
+              //Text(detail.title),
             ],
           ),
         ],
