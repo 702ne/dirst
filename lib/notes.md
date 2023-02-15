@@ -5,17 +5,21 @@ marp: false
 # **Marp**
 
 ## New project
+
 ```
->	Flutter create toonflix
->	Cd toonflix
->	Code .
+> Flutter create toonflix
+> Cd toonflix
+> Code .
 ```
+
 ---
 
 ## Settings
+
 - Vs code: install Dart, Flutter extension
 - editor setting (Ctl + Shift + P)
-    - open user settings (settings.json)
+  - open user settings (settings.json)
+
 ```
     "editor.codeActionsOnSave" : {
         "source.fixAll" : truepush -
@@ -28,6 +32,7 @@ marp: false
 ### D2 language for diagram
 
 [git bash in VSCode](https://www.geeksforgeeks.org/how-to-integrate-git-bash-with-visual-studio-code/)
+
 ```
   "terminal.integrated.profiles.windows": {
     "Git_Bash": {
@@ -36,9 +41,9 @@ marp: false
     }
   }
   ```
+
 [D2 language](https://d2lang.com/tour/install)<br>
 [D2 Playground](https://play.d2lang.com/)
-
 
 ---
 **20230209**
@@ -57,9 +62,9 @@ marp: false
 
 [Dart cheetsheet](https://koenig-media.raywenderlich.com/uploads/2019/08/dart_cheatsheet-1.0.3.pdf)
 
-
 ozdamby@msn.com
-https://github.com/702ne/dirst
+<https://github.com/702ne/dirst>
+
 ```
 Young@Young-Acer MINGW64 /c/dev/study/dirst
 $ git config --global user.name "Young P"
@@ -67,27 +72,35 @@ $ git config --global user.name "Young P"
 Young@Young-Acer MINGW64 /c/dev/study/dirst
 $ git config --global user.email "ozdamby@msn.com"
 ```
+
 Git setup
+
 ```Young@Young-Acer MINGW64 /c/dev/study/dirst
 $ git config --global user.name "Young P"
 
 Young@Young-Acer MINGW64 /c/dev/study/dirst
 $ git config --global user.email "ozdamby@msn.com"
 ```
+
 Project Init
+
 ```
-$ git init
-$ git add .
-$ git commit -m "nomadcoders : first commit"
-$ git status
-$ git branch -M main
-$ git remote add origin git@github.com:702ne/dirst.git
-$ git push -u origin main
+git init
+git add .
+git commit -m "nomadcoders : first commit"
+git status
+git branch -M main
+git remote add origin git@github.com:702ne/dirst.git
+git push -u origin main
 ```
+
 Error
+
 ```
 $ ssh-keygen -t ed25519 -C "ozdamby@msn.com"
 **C:\Users\Young\.ssh**
+https://github.com/settings/keys
+
 $ git push -f main
 $ git remote -v
 $ git fetch origin main:tmp
@@ -96,11 +109,14 @@ $ git push
 $ git push --set-upstream origin main
 $ git push origin main
 ```
+
 Update
+
 ```
 ```
 
 new project from github
+
 ```
 git clone git@github.com:702ne/dirst.git newwork
 WORKING
@@ -110,11 +126,13 @@ git checkout -b woring
 git push origin working
 
 ```
+
 *send pull request*
+
 - merge pull request
 
+- Conflict
 
-* Conflict
 - git add .
 - git commit -m 'second'
 - git pull origin main
